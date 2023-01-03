@@ -1,6 +1,25 @@
+import java.awt.*;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+
+
 public class Main {
+    public Main(){
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(200, 200, 10, 100));
+        panel.setLayout(new GridLayout(0, 1));
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Our GUI");
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args) {
+        new Main();
         final String RESET = "\u001B[0m";
         final String YELLOW = "\u001B[33m";
 
@@ -31,3 +50,5 @@ public class Main {
         }
     }
 }
+
+//iterator, Date object, sortowanie, wiele list może
