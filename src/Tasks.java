@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.Collections;
+import java.util.Comparator;
 public class Tasks {
 
     private final String RESET = "\u001B[0m";
@@ -33,10 +34,18 @@ public class Tasks {
         switch(choice){
             case 1 -> addTask();
             case 2 -> modifyTask();
+            case 4 -> sortTasks();
             case 9 -> deleteTask();
         }
     }
-
+    private void sortTasks(){
+        Collections.sort(tasksList, new Comparator<Task>() {
+            @Override
+            public int compare(Task p1, Task p2) {
+                return  p1.isDone().compareTo(p2.isDone());
+            }
+        });
+    }
     private void addTask(){
         Task task1 = new Task();
         System.out.println("Wpisz swoje zadanie");
