@@ -1,37 +1,36 @@
-import java.util.Scanner;
+import java.awt.*;
+import javax.swing.*;
 
-public class Main {
+public class Main extends JFrame {
+    public Main() {
+        // Tworzenie kontenera z trzema przyciskami
+        JPanel cards = new JPanel();
+        JButton button1 = new JButton("Przycisk 1");
+        JButton button2 = new JButton("Przycisk 2");
+        JButton button3 = new JButton("Przycisk 3");
+
+        // Ustawienie CardLayout jako menedżera rozkładu kontenera
+        CardLayout cardLayout = new CardLayout();
+        cards.setLayout(cardLayout);
+
+        // Dodanie przycisków do kontenera i oznaczenie ich jako karty
+        cards.add(button1, "Karta 1");
+        cards.add(button2, "Karta 2");
+        cards.add(button3, "Karta 3");
+
+        // Ustawienie pierwszej karty jako widocznej
+        cardLayout.show(cards, "Karta 1");
+
+        // Dodanie kontenera z przyciskami do okna
+        add(cards);
+    }
 
     public static void main(String[] args) {
-        final String RESET = "\u001B[0m";
-        final String YELLOW = "\u001B[33m";
-
-        Scanner scanner = new Scanner(System.in);
-
-        boolean shouldContinue = true;
-
-        Tasks taskList = new Tasks();
-
-        while (shouldContinue) {
-            taskList.getTasksList();
-
-            System.out.println(YELLOW+"MENU"+RESET);
-            System.out.println("1 dodaj zadanie");
-            System.out.println("2 zmień status (wykonane/niewykonane)");
-            System.out.println("3 zobacz listę zadań");
-            System.out.println("4 posortuj");
-            System.out.println("9 usuń zadanie");
-            System.out.println("0 Wyłącz program");
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1 -> taskList.setTasksList(choice);
-                case 2 -> taskList.setTasksList(choice);
-                case 3 -> taskList.getTasksList();
-                case 4 -> taskList.setTasksList(choice);
-                case 9 -> taskList.setTasksList(choice);
-                case 0 -> shouldContinue = false;
-            }
-        }
+        Main frame = new Main();
+        frame.setTitle("CardLayout Example");
+        frame.setSize(300, 150);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }
