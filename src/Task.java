@@ -1,11 +1,10 @@
-import java.util.Scanner;
 public class Task {
    private String content;
-   private  String done;
+   private  boolean done;
 
-    public void Task(String content){
+    public Task(String content){
         this.content = content;
-        this.done = " ";
+        this.done = false;
     }
 
     public String getContent() {
@@ -16,13 +15,16 @@ public class Task {
         this.content = content;
     }
 
-    public String isDone() {
-        return done;
+    public boolean isDone() {
+        return this.done;
     }
 
-    public void setDone(String done) {
-        if(done.equals(" "))
-            this.done="✔";
-        else this.done=" ";
+    public void setDone(boolean done) {
+        System.out.println("done1"+this.done);
+        if(done==true)
+            this.done=false;
+        else this.done=true;
+        System.out.println("done2"+this.done);
+
     }
 }
